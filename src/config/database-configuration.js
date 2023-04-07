@@ -6,7 +6,7 @@ const configDatabase = async (app) => {
             useUnifiedTopology: true,
             useNewUrlParser: true
         })
-         console.log('Database connected!');
+         console.log('Database connected successfully!');
      } catch (err) {
         console.log('It has an error from MongoDB client')  
         console.error(error)
