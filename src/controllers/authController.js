@@ -55,7 +55,10 @@ async function authAction(req,res, action, httpErrorStatus) {
                 file,
             } = req;
             
-            let logoUrl = req.protocol + '://' + req.get('host') + '/uploads/' + file.filename
+            let logoUrl;
+            if( file ) {
+                logoUrl = req.protocol + '://' + req.get('host') + '/uploads/' + file.filename
+            }
             
             data = await registerAsCompany(formData.email, formData.password, formData.companyName, formData.desc, formData.employees, formData.foundationYear, logoUrl)
         } else if( action === 'login_company') {
