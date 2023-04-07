@@ -1,9 +1,10 @@
 const multer = require('multer');
+const path = require('path')
 
 //here we defined the options for uploading our file such as destination and filename
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './src/uploads/')
+        path.join(__dirname, '/src/uploads/')
     },
     filename: (req, file, cb) => {
         let uniqueName = Math.round(Math.random() * 12123123133);
