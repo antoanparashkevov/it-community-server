@@ -54,8 +54,9 @@ async function authAction(req,res, action, httpErrorStatus) {
             const {
                 file,
             } = req;
-            
+
             let logoUrl;
+            
             if( file ) {
                 logoUrl = req.protocol + '://' + req.get('host') + '/uploads/' + file.filename
             }
