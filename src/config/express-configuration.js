@@ -3,9 +3,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 //Middlewares
-const cors = require('./middlewares/cors')
-const trimBody = require('./middlewares/trimBody')
-const session = require('./middlewares/session')
+const cors = require('../middlewares/cors')
+const trimBody = require('../middlewares/trimBody')
+const session = require('../middlewares/session')
 
 const configExpress = (app) => {
 

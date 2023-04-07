@@ -1,15 +1,15 @@
 //Controllers...
-const authController = require('./controllers/authController')
-const jobController = require('./controllers/jobController')
-const applicationController = require('./controllers/applicationController')
-const profileController = require('./controllers/profileController')
-const categoryController = require('./controllers/categoryController')
-const subCategoryController = require('./controllers/subCategoryController')
-const cookieController = require('./controllers/cookieController')
+const authController = require('../controllers/authController')
+const jobController = require('../controllers/jobController')
+const applicationController = require('../controllers/applicationController')
+const profileController = require('../controllers/profileController')
+const categoryController = require('../controllers/categoryController')
+const subCategoryController = require('../controllers/subCategoryController')
+const cookieController = require('../controllers/cookieController')
 
 //utils
-const parseError = require("./util/parseError");
-const getUserData = require('./util/getUserData');
+const parseError = require("../util/parseError");
+const getUserData = require('../util/getUserData');
 
 const configRoutes = (app) => {
     app.get('/', (req,res)=>{
