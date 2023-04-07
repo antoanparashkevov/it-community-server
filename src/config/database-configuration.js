@@ -7,7 +7,7 @@ const configDatabase = async (app) => {
             useNewUrlParser: true
         })
          console.log('Database connected successfully!');
-     } catch (err) {
+     } catch (error) {
         console.log('It has an error from MongoDB client')  
         console.error(error)
         process.exit(1)
