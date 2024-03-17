@@ -42,7 +42,7 @@ async function login(email,password) {
     return createToken(user, 'user')
 }
 
-async function registerAsCompany(email,password, companyName, desc, employees, foundationYear, logoUrl = null) {
+async function registerAsCompany(email,password, companyName, desc, employees, foundationYear, logoUrl) {
     const isExisting = await Company.findOne({email}).collation({ locale:'en', strength:2 })
 
     if( isExisting ) {
@@ -51,23 +51,17 @@ async function registerAsCompany(email,password, companyName, desc, employees, f
     
     const hashedPassword = await bcrypt.hash(password,10)//we save only the hashed password to the Database
 
-    const companyFields = {
+    const user = await Company.create({
         email,
         hashedPassword,
         companyName,
         desc,
         foundationYear,
+        logo: logoUrl,
         employees,
         roles: ['user', 'company']
-    }
-
-    if ( logoUrl ) {
-        companyFields = {
-            ...companyFields,
-            logo: logoUrl
-        }
-    }
-    const user = await Company.create(companyFields);
+    });
+    console.log('created User >>> ', user)
 
     return createToken(user, 'company')
 }
